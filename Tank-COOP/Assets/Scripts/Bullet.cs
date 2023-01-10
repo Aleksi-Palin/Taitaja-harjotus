@@ -22,6 +22,10 @@ public class Bullet : MonoBehaviour
             
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        IsWall = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
