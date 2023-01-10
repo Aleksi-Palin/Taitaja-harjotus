@@ -2131,7 +2131,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1401727328}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985453448}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1401727328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,7 +2637,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1702424797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1985453448}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1702424797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3469,6 +3493,7 @@ MonoBehaviour:
   GameOver: 0
   Winner_text: 
   winner_text_holder: {fileID: 782555785}
+  RestartMenu: {fileID: 989996024}
 --- !u!4 &1985453449
 Transform:
   m_ObjectHideFlags: 0

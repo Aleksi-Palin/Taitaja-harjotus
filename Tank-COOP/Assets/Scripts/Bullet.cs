@@ -7,11 +7,16 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public float damage = 10f;
 
+    public float DestroyAfterTime = 5f;
+
     public bool IsWall;
 
     Health health;
 
-
+    private void Awake()
+    {
+        StartCoroutine(DestroyAfter());
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -20,6 +25,10 @@ public class Bullet : MonoBehaviour
         {
             IsWall = true;
             
+        }
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            IsWall = false;
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -39,6 +48,13 @@ public class Bullet : MonoBehaviour
             health.TakeDamage(damage);
         }
         Destroy(gameObject);
+    }
+
+    IEnumerator DestroyAfter()
+    {
+        yield return new WaitForSeconds(DestroyAfterTime);
+
+        Destroy(this.gameObject);
     }
 
 
