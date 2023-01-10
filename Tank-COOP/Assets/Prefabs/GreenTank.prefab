@@ -74,6 +74,7 @@ MonoBehaviour:
   rotationSpeed: 180
   BulletSpeed: 1100
   IsDead: 0
+  ShootingCoolDown: 1
 --- !u!114 &4801556160493145456
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2358,6 +2358,10 @@ PrefabInstance:
       propertyPath: MovementSpeed
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 6133054716631532341, guid: 10c262fbde064734280003fc5ab630d2, type: 3}
+      propertyPath: ShootingCoolDown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10c262fbde064734280003fc5ab630d2, type: 3}
 --- !u!1 &1639155204

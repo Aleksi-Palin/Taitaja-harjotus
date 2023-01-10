@@ -22,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsDead;
 
+    public float ShootingCoolDown;
+
+    private float _shootingCD;
+
     private Health health;
     private Rigidbody rb;
     private GameManager manager;
@@ -35,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         health = GetComponent<Health>();
         rb = GetComponent<Rigidbody>();
         manager = FindObjectOfType<GameManager>();
+
     }
 
 
@@ -45,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Shoot();
         CheckHealth();
+
+     
     }
 
     private void FixedUpdate()
@@ -88,8 +95,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && !manager.GameOver)
+        if (Input.GetKeyDown(KeyCode.Q) && !manager.GameOver && Time.time > _shootingCD)
         {
+            _shootingCD = Time.time + ShootingCoolDown;
             GameObject instBullet = Instantiate(Bullet, ShootingPoint.position, ShootingPoint.rotation);
 
             Rigidbody bulletRB = instBullet.GetComponent<Rigidbody>();

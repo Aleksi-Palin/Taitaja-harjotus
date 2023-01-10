@@ -16,6 +16,10 @@ public class Player2Movement : MonoBehaviour
 
     public bool IsDead;
 
+    public float ShootingCoolDown;
+
+    private float _shootingCD;
+
     private Health health;
 
     private Rigidbody rb;
@@ -85,8 +89,9 @@ public class Player2Movement : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !manager.GameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && !manager.GameOver && Time.time > _shootingCD)
         {
+            _shootingCD = Time.time + ShootingCoolDown;
             GameObject instBullet = Instantiate(Bullet, ShootingPoint.position, ShootingPoint.rotation);
 
             Rigidbody bulletRB = instBullet.GetComponent<Rigidbody>();
