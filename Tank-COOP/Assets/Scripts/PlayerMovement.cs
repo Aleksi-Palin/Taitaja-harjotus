@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Health health;
     private Rigidbody rb;
+    private GameManager manager;
 
     float horizontal;
     float vertical;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         IsDead = false;
         health = GetComponent<Health>();
         rb = GetComponent<Rigidbody>();
+        manager = FindObjectOfType<GameManager>();
     }
 
 
@@ -47,16 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        rb.velocity = transform.forward * vertical * MovementSpeed * Time.fixedDeltaTime;
 
-
-        if (horizontal == 0)
-            rb.angularVelocity = Vector3.zero;
-        else
-            rb.angularVelocity = Vector3.up * horizontal * rotationSpeed * Time.fixedDeltaTime;
-            
-
+        FixedMoved();
     }
 
     private void Move()
@@ -77,9 +71,24 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    private void FixedMoved()
+    {
+        if (!manager.GameOver)
+        {
+            rb.velocity = transform.forward * vertical * MovementSpeed * Time.fixedDeltaTime;
+
+
+            if (horizontal == 0)
+                rb.angularVelocity = Vector3.zero;
+            else
+                rb.angularVelocity = Vector3.up * horizontal * rotationSpeed * Time.fixedDeltaTime;
+        }
+        
+    }
+
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !manager.GameOver)
         {
             GameObject instBullet = Instantiate(Bullet, ShootingPoint.position, ShootingPoint.rotation);
 
@@ -93,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
         if(health.health <= 0)
         {
             IsDead = true;
+            manager.GameOver = true;
+            manager.Winner_text = "Red Wins!";
         }
     }
 }
