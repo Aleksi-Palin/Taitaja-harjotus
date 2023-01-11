@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4258251d8408d438f7dd9b58f2d2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 200
+  MovementSpeed: 800
   Bullet: {fileID: 6064042500747978492, guid: 9138f3dd56dfbb0479c5669ec85210e4, type: 3}
   ShootingPoint: {fileID: 8220506663645123506}
   rotationSpeed: 180
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2253d0ae0122ba4280dd660b1b1018a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 20
 --- !u!54 &8737929195153223077
 Rigidbody:
   m_ObjectHideFlags: 0
